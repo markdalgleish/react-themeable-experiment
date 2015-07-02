@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 
 import StyledComponent from './components/StyledComponent/StyledComponent';
 
-import cssModulesStyles from './styles/css-modules.css';
+import cssModule from './styles/css-module.css';
+import object from './styles/object.js';
 
 export default class App extends Component {
 
   render() {
     return (
       <div>
-        <StyledComponent classes={cssModulesStyles} />
+        <StyledComponent styles={cssModule} />
+        <StyledComponent styles={object} />
       </div>
     );
   }
