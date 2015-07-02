@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 const stylable = ComposedComponent => class StylableComponent extends Component {
 
@@ -18,6 +18,10 @@ const stylable = ComposedComponent => class StylableComponent extends Component 
 
 @stylable
 class StyledComponent extends Component {
+
+  static propTypes = {
+    style: PropTypes.func.isRequired
+  }
 
   render() {
     const { style } = this.props;
