@@ -1,11 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import themeable from 'react-themeable';
 
-@themeable
 class ThemedComponent extends Component {
 
   static propTypes = {
-    theme: PropTypes.func.isRequired
+    theme: PropTypes.object
   }
 
   constructor(...args) {
@@ -18,7 +17,7 @@ class ThemedComponent extends Component {
   }
 
   render() {
-    const { theme } = this.props;
+    const style = themeable(this.props.theme);
 
     const hover = (name) => {
       return {
@@ -29,9 +28,9 @@ class ThemedComponent extends Component {
 
     return (
       <div>
-        <div key="1" {...theme('foo', this.state.foo && 'foo_hover')} {...hover('foo')}>Foo</div>
-        <div key="2" {...theme('bar', this.state.bar && 'bar_hover')} {...hover('bar')}>Bar</div>
-        <div key="3" {...theme('baz', this.state.baz && 'baz_hover')} {...hover('baz')}>Baz</div>
+        <div {...style(1, 'foo', this.state.foo && 'foo_hover')} {...hover('foo')}>Foo</div>
+        <div {...style(2, 'bar', this.state.bar && 'bar_hover')} {...hover('bar')}>Bar</div>
+        <div {...style(3, 'baz', this.state.baz && 'baz_hover')} {...hover('baz')}>Baz</div>
       </div>
     );
   }
