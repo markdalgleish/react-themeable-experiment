@@ -11,33 +11,28 @@ class StyledComponent extends Component {
   constructor(...args) {
     super(...args);
     this.state = {
-      fooIsHovered: false,
-      barIsHovered: false,
-      bazIsHovered: false
+      foo: false,
+      bar: false,
+      baz: false
     };
-  }
-
-  set(name, value) {
-    this.setState({ [`${name}IsHovered`]: value });
   }
 
   render() {
     const { style } = this.props;
 
     const hover = (name) => {
-      const stateKey = `${name}IsHovered`;
       return {
-        onMouseOver: () => this.setState({ [stateKey]: true }),
-        onMouseOut: () => this.setState({ [stateKey]: false })
+        onMouseOver: () => this.setState({ [name]: true }),
+        onMouseOut: () => this.setState({ [name]: false })
       };
     };
 
     return (
       <div>
 
-        <div {...style('foo', this.state.fooIsHovered && 'foo_hover')} {...hover('foo')}>Foo</div>
-        <div {...style('bar', this.state.barIsHovered && 'bar_hover')} {...hover('bar')}>Bar</div>
-        <div {...style('baz', this.state.bazIsHovered && 'baz_hover')} {...hover('baz')}>Baz</div>
+        <div {...style('foo', this.state.foo && 'foo_hover')} {...hover('foo')}>Foo</div>
+        <div {...style('bar', this.state.bar && 'bar_hover')} {...hover('bar')}>Bar</div>
+        <div {...style('baz', this.state.baz && 'baz_hover')} {...hover('baz')}>Baz</div>
       </div>
     );
   }
