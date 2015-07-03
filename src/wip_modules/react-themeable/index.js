@@ -1,4 +1,3 @@
-import React, { Component, PropTypes } from 'react';
 import assign from 'lodash.assign';
 
 const truthy = x => x;
