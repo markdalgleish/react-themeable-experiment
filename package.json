@@ -1,8 +1,8 @@
 {
-  "name": "react-stylable-experiment",
+  "name": "react-themeable-experiment",
   "private": true,
   "version": "1.0.0",
-  "description": "Experiment for future react-stylable project",
+  "description": "Experiment for future react-themeable project",
   "main": "index.js",
   "scripts": {
     "test": "webpack",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/markdalgleish/react-stylable-experiment"
+    "url": "https://github.com/markdalgleish/react-themeable-experiment"
   },
   "author": "Mark Dalgleish",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/markdalgleish/react-stylable-experiment/issues"
+    "url": "https://github.com/markdalgleish/react-themeable-experiment/issues"
   },
-  "homepage": "https://github.com/markdalgleish/react-stylable-experiment",
+  "homepage": "https://github.com/markdalgleish/react-themeable-experiment",
   "devDependencies": {
     "autoprefixer-core": "^5.1.11",
     "babel-core": "^5.2.17",

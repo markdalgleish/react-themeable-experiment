@@ -7,10 +7,10 @@ export default ComposedComponent => class StylableComponent extends Component {
     styles: PropTypes.object
   }
 
-  style(...keys) {
+  theme(...keys) {
     const styles = keys
       .filter(x => x)
-      .map(key => this.props.styles[key]);
+      .map(key => this.props.theme[key]);
 
     return typeof styles[0] === 'string' ?
       { className: styles.join(' ') } :
@@ -18,7 +18,7 @@ export default ComposedComponent => class StylableComponent extends Component {
   }
 
   render() {
-    return <ComposedComponent {...this.props} style={::this.style} />
+    return <ComposedComponent {...this.props} theme={::this.theme} />
   }
 
 };

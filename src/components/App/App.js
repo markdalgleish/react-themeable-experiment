@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import StyledComponent from './components/StyledComponent/StyledComponent';
+import ThemedComponent from './components/ThemedComponent/ThemedComponent';
 
 import cssModule from './styles/css-module.css';
 import object from './styles/object.js';
@@ -11,16 +11,16 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>React Stylable Experiment</h1>
+        <h1>React Themeable Experiment</h1>
 
         <h2>CSS Modules</h2>
-        <StyledComponent styles={cssModule} />
+        <ThemedComponent theme={cssModule} />
 
         <h2>Plain Object</h2>
-        <StyledComponent styles={object} />
+        <ThemedComponent theme={object} />
 
         <h2>React Style</h2>
-        <StyledComponent styles={reactStyle} />
+        <ThemedComponent theme={reactStyle} />
       </div>
     );
   }

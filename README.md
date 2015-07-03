@@ -1,4 +1,4 @@
-# React Stylable Experiment
+# React Themeable Experiment
 
 WIP.
 
