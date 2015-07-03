@@ -1,24 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-
-const stylable = ComposedComponent => class StylableComponent extends Component {
-
-  static propTypes = {
-    styles: PropTypes.object
-  }
-
-  style(key) {
-    const style = this.props.styles[key];
-
-    return typeof style === 'string' ?
-      { className: style } :
-      { style: style };
-  }
-
-  render() {
-    return <ComposedComponent {...this.props} style={::this.style} />
-  }
-
-};
+import stylable from 'react-stylable';
 
 @stylable
 class StyledComponent extends Component {
