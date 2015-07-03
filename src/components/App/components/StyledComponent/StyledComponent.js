@@ -2,8 +2,12 @@ import React, { Component, PropTypes } from 'react';
 
 const stylable = ComposedComponent => class StylableComponent extends Component {
 
+  static propTypes = {
+    styles: PropTypes.object
+  }
+
   style(key) {
-    const style = this.props.styles[key]
+    const style = this.props.styles[key];
 
     return typeof style === 'string' ?
       { className: style } :
