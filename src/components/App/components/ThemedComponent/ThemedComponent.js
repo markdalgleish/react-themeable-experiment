@@ -29,10 +29,9 @@ class ThemedComponent extends Component {
 
     return (
       <div>
-
-        <div {...theme('foo', this.state.foo && 'foo_hover')} {...hover('foo')}>Foo</div>
-        <div {...theme('bar', this.state.bar && 'bar_hover')} {...hover('bar')}>Bar</div>
-        <div {...theme('baz', this.state.baz && 'baz_hover')} {...hover('baz')}>Baz</div>
+        <div key="1" {...theme('foo', this.state.foo && 'foo_hover')} {...hover('foo')}>Foo</div>
+        <div key="2" {...theme('bar', this.state.bar && 'bar_hover')} {...hover('bar')}>Bar</div>
+        <div key="3" {...theme('baz', this.state.baz && 'baz_hover')} {...hover('baz')}>Baz</div>
       </div>
     );
   }

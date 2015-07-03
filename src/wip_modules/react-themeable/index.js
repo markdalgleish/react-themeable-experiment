@@ -1,24 +1,39 @@
 import React, { Component, PropTypes } from 'react';
 import assign from 'lodash.assign';
 
-export default ComposedComponent => class StylableComponent extends Component {
+const truthy = x => x;
 
-  static propTypes = {
-    styles: PropTypes.object
+const makeClass = (ComposedComponent, decorator) => {
+  if (decorator) {
+    ComposedComponent = decorator(ComposedComponent);
   }
 
-  theme(...keys) {
-    const styles = keys
-      .filter(x => x)
-      .map(key => this.props.theme[key]);
+  return class ThemeableComponent extends Component {
 
-    return typeof styles[0] === 'string' ?
-      { className: styles.join(' ') } :
-      { style: assign({}, ...styles) };
-  }
+    static propTypes = {
+      theme: PropTypes.object
+    }
 
-  render() {
-    return <ComposedComponent {...this.props} theme={::this.theme} />
-  }
+    theme(...keys) {
+      const styles = keys
+        .filter(truthy)
+        .map(key => this.props.theme[key])
+        .filter(truthy);
 
+      return typeof styles[0] === 'string' ?
+        { className: styles.join(' ') } :
+        { style: assign({}, ...styles) };
+    }
+
+    render() {
+      return <ComposedComponent {...this.props} theme={::this.theme} />
+    }
+
+  };
 };
+
+export default ComposedComponent => {
+  let ThemeableComponent = makeClass(ComposedComponent);
+  ThemeableComponent.decorateWith = decorator => makeClass(ComposedComponent, decorator);
+  return ThemeableComponent;
+}

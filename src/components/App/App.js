@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import Radium from 'radium';
 
 import ThemedComponent from './components/ThemedComponent/ThemedComponent';
 
 import cssModule from './styles/css-module.css';
 import object from './styles/object.js';
 import reactStyle from './styles/react-style.js';
+import radiumTheme from './styles/radium.js';
+
+const RadiumThemedComponent = ThemedComponent.decorateWith(Radium);
 
 export default class App extends Component {
 
@@ -21,6 +25,9 @@ export default class App extends Component {
 
         <h2>React Style</h2>
         <ThemedComponent theme={reactStyle} />
+
+        <h2>Radium</h2>
+        <RadiumThemedComponent theme={radiumTheme} />
       </div>
     );
   }
