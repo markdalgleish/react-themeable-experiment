@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import assign from 'lodash.assign';
 
 export default ComposedComponent => class StylableComponent extends Component {
 
@@ -6,12 +7,14 @@ export default ComposedComponent => class StylableComponent extends Component {
     styles: PropTypes.object
   }
 
-  style(key) {
-    const style = this.props.styles[key];
+  style(...keys) {
+    const styles = keys
+      .filter(x => x)
+      .map(key => this.props.styles[key]);
 
-    return typeof style === 'string' ?
-      { className: style } :
-      { style: style };
+    return typeof styles[0] === 'string' ?
+      { className: styles.join(' ') } :
+      { style: assign({}, ...styles) };
   }
 
   render() {

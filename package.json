@@ -30,6 +30,7 @@
     "extract-text-webpack-plugin": "^0.8.1",
     "file-loader": "^0.8.4",
     "gh-pages": "git://github.com/markdalgleish/gh-pages#cli-message",
+    "lodash.assign": "^3.2.0",
     "node-libs-browser": "^0.5.0",
     "postcss-color-rebeccapurple": "^1.1.0",
     "postcss-loader": "^0.4.3",

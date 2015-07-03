@@ -1,11 +1,20 @@
 .foo {
   color: red;
 }
+.foo:hover {
+  font-weight: bold;
+}
 
 .bar {
   color: green;
 }
+.bar:hover {
+  font-weight: bold;
+}
 
 .baz {
   color: blue;
+}
+.baz:hover {
+  font-weight: bold;
 }
