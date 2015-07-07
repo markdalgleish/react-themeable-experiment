@@ -1,4 +1,4 @@
-import assign from 'lodash.assign';
+import assign from 'object-assign';
 
 const truthy = x => x;
 
