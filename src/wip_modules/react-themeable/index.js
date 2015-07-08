@@ -2,9 +2,7 @@ import assign from 'object-assign';
 
 const truthy = x => x;
 
-export default props => (key, ...names) => {
-  const theme = props.sheet && props.sheet.classes || props.theme;
-
+export default theme => (key, ...names) => {
   const styles = names
     .map(name => theme[name])
     .filter(truthy);

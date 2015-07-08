@@ -3,17 +3,20 @@ import React, { Component } from 'react';
 import BrowserOnly from 'react-browser-only';
 
 import Radium from 'radium';
-import useSheet from 'react-jss';
+import jss from 'jss';
 
 import cssModulesTheme from './themes/css-modules.css';
 import objectTheme from './themes/object.js';
 import reactStyleTheme from './themes/react-style.js';
 import radiumTheme from './themes/radium.js';
-import reactJssTheme from './themes/react-jss.js';
+import jssTheme from './themes/jss.js';
+
+const jssSheet = typeof window !== 'undefined' ?
+  jss.createStyleSheet(jssTheme).attach() :
+  null;
 
 import ThemedComponent from './ThemedComponent';
 const RadiumThemedComponent = Radium(ThemedComponent);
-const JssThemedComponent = useSheet(ThemedComponent, reactJssTheme);
 
 export default class App extends Component {
 
@@ -34,9 +37,9 @@ export default class App extends Component {
         <h2>Radium</h2>
         <RadiumThemedComponent theme={radiumTheme} />
 
-        <h2>React JSS</h2>
+        <h2>JSS</h2>
         <BrowserOnly>
-          {() => <JssThemedComponent />}
+          {() => <ThemedComponent theme={jssSheet.classes} />}
         </BrowserOnly>
       </div>
     );

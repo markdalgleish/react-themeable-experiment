@@ -17,7 +17,7 @@ class ThemedComponent extends Component {
   }
 
   render() {
-    const style = themeable(this.props);
+    const style = themeable(this.props.theme);
 
     const hover = (name) => {
       return {
