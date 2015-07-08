@@ -37,6 +37,7 @@
     "radium": "^0.13.2",
     "raw-loader": "^0.5.1",
     "react": "^0.13.3",
+    "react-jss": "^1.0.0",
     "react-style": "^0.5.5",
     "react-to-html-webpack-plugin": "^2.1.0",
     "style-loader": "^0.12.3",
