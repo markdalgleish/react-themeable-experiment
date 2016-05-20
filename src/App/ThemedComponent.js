@@ -4,7 +4,10 @@ import themeable from 'react-themeable';
 class ThemedComponent extends Component {
 
   static propTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.array
+    ])
   }
 
   constructor(...args) {
